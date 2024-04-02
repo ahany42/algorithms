@@ -35,18 +35,28 @@ void bubbleSort(T arr[],int n) {
 		}
 		
 }
+void averageprefix(int arr[],int n) {
+	float sum = 0;
+	for (int i = 0; i < n; i++) {
+		sum = sum + arr[i];
+		cout << sum / (i + 1)<<" ";
+	}
+	
+}
 int main()
 {
 	cout << "Enter Number Of Elements" << endl;
 	int N;
 	cin >> N;
 	int* ptr = new int[N];
+	cout << "Enter Array Elements" << endl;
 	for (int i = 0; i < N; i++) {
 		cin >> ptr[i];
 	}
+	averageprefix(ptr, N);
 	//insertionSort(ptr, N);
-	bubbleSort(ptr, N);
-	printArray(ptr, N);
+	//bubbleSort(ptr, N);
+	//printArray(ptr, N);
 	return 0;
 }
 
