@@ -1,8 +1,10 @@
 #include <iostream>
 using namespace std;
-void insertionSort(int arr[], int n)
+template <class T>
+void insertionSort(T arr[], int n)
 {
-	int i, key, j;
+	int i,  j;
+	T key;
 	for (i = 1; i < n; i++) {
 		key = arr[i];
 		j = i - 1;
