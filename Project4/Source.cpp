@@ -13,14 +13,26 @@ void insertionSort(int arr[], int n)
 		arr[j + 1] = key;
 	}
 }
-void printArray(int arr[], int n)
+template <class T>
+void printArray(T arr[], int n)
 {
-	int i;
-	for (i = 0; i < n; i++)
+
+	for (int i  = 0; i < n; i++)
 		cout << arr[i] << " ";
 	cout << endl;
 }
-
+template <class T>
+void bubbleSort(T arr[],int n) {
+	for (int i = 0; i < n-1; i++)
+		for (int j = 0; j < n; j++) {
+			if (arr[j] < arr[j - 1]) {
+				swap(arr[j], arr[j - 1]);
+				
+			}
+				
+		}
+		
+}
 int main()
 {
 	cout << "Enter Number Of Elements" << endl;
@@ -30,9 +42,9 @@ int main()
 	for (int i = 0; i < N; i++) {
 		cin >> ptr[i];
 	}
-	insertionSort(ptr, N);
+	//insertionSort(ptr, N);
+	bubbleSort(ptr, N);
 	printArray(ptr, N);
-
 	return 0;
 }
 
