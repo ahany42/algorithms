@@ -43,9 +43,26 @@ void averageprefix(int arr[],int n) {
 	}
 	
 }
+
+//Multiplying 2 numbers with only summation and with complexity less than O(n)
+int SmartMultiply(int num1,int num2) {
+	int mult;
+	if (num1 == 0)
+		return 0;
+	 if (num1 == 1)
+		return num2;
+	 mult = SmartMultiply(num1 / 2, num2);
+		if (num1 % 2 == 0)
+			return mult + mult;
+		else
+			return mult + mult + num2;
+	
+	
+}
 int main()
 {
-	cout << "Enter Number Of Elements" << endl;
+	int num1, num2;
+	/*cout << "Enter Number Of Elements" << endl;
 	int N;
 	cin >> N;
 	int* ptr = new int[N];
@@ -53,10 +70,15 @@ int main()
 	for (int i = 0; i < N; i++) {
 		cin >> ptr[i];
 	}
-	averageprefix(ptr, N);
+	averageprefix(ptr, N);*/
 	//insertionSort(ptr, N);
 	//bubbleSort(ptr, N);
 	//printArray(ptr, N);
+	cout << "Enter Num 1" << endl;
+	cin >> num1;
+	cout << "Enter Num 2" << endl;
+	cin >> num2;
+	cout<<SmartMultiply(num1, num2);
 	return 0;
 }
 
