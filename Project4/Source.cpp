@@ -114,6 +114,46 @@ bool BinarySearch(vector<T> arr,T element,int &index) {
 
 	
 }
+//Using Divide And Conquer Technique
+void Combine(vector<int> &arr, vector<int> &leftHalf, vector<int> &rightHalf) {
+	int leftSize = leftHalf.size();
+	int rightSize = rightHalf.size();
+	int i=0, j=0, k = 0;
+	while (i < leftSize && j < rightSize) {
+		if (leftHalf[i] <= rightHalf[j]) {
+			arr[k] = leftHalf[i];
+			i++;
+		}
+		else {
+			arr[k] = rightHalf[j];
+			j++;
+		}
+		k++;
+	}
+	while (i < leftSize) {
+		arr[k] = leftHalf[i];
+		k++;
+		i++;
+	}
+	while (j < rightSize) {
+		arr[k] = rightHalf[j];
+		k++;
+		j++;
+	}
+}
+void MergeSort(vector<int> &arr) {
+	int size = arr.size();
+	int mid = size / 2;
+	if (size < 2)
+		return;
+	//Divide
+	vector<int> leftHalf(arr.begin(), arr.begin() + mid);
+	vector<int> rightHalf(arr.begin() + mid, arr.end());
+	MergeSort(leftHalf);
+	MergeSort(rightHalf);
+	//Combine
+	Combine(arr, leftHalf, rightHalf);
+}
 int main()
 {
 	/*int num1, num2;
@@ -176,6 +216,10 @@ int main()
 		cout << "Element Found At index " << index + 1 << endl;
 	else
 		cout << "Element Not Found " << endl;
+	MergeSort(arr);
+	for (int i = 0; i < arr.size(); i++)
+		cout << arr[i] << "  ";
+	cout << endl;
 	return 0;
 }
 
