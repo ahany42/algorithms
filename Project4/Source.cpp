@@ -4,6 +4,7 @@ using namespace std;
 template <class T>
 void insertionSort(T arr[], int n)
 {
+	cout << "----- Insertion Sort -----" << endl;
 	int i,  j;
 	T key;
 	for (i = 1; i < n; i++) {
@@ -19,13 +20,14 @@ void insertionSort(T arr[], int n)
 template <class T>
 void printArray(T arr[], int n)
 {
-
+	cout << "----- Print Array -----" << endl;
 	for (int i  = 0; i < n; i++)
 		cout << arr[i] << " ";
 	cout << endl;
 }
 template <class T>
 void bubbleSort(T arr[],int n) {
+	cout << "----- Bubble Sort -----" << endl;
 	for (int i = 0; i < n-1; i++)
 		for (int j = 0; j < n; j++) {
 			if (arr[j] < arr[j - 1]) {
@@ -37,6 +39,7 @@ void bubbleSort(T arr[],int n) {
 		
 }
 void averageprefix(int arr[],int n) {
+	cout << "----- Average Prefix -----" << endl;
 	float sum = 0;
 	for (int i = 0; i < n; i++) {
 		sum = sum + arr[i];
@@ -47,6 +50,7 @@ void averageprefix(int arr[],int n) {
 
 //Multiplying 2 numbers with only summation and with complexity less than O(n)
 int SmartMultiply(int num1,int num2) {
+	cout << "----- Smart Multiply -----" << endl;
 	int mult;
 	if (num1 == 0)
 		return 0;
@@ -61,11 +65,11 @@ int SmartMultiply(int num1,int num2) {
 	
 }
 int FindPeak(vector<int> arr) {
+	cout << "----- Find Peak -----" << endl;
 	int start = 0;
 	int end = arr.size()-1;
 	int mid = 0;
-		cout << "start " << start << endl;
-	cout << "end " << end << endl;
+
 	while (start < end) {
 		mid = start + (end -start) / 2;
 		if (arr[mid] >= arr[mid - 1] && arr[mid] >= arr[mid + 1])
@@ -82,10 +86,38 @@ int FindPeak(vector<int> arr) {
 	return arr[end];
 	
 }
+//Binary Search,arr>>sorted array
+template <class T>
+bool BinarySearch(vector<T> arr,T element,int &index) {
+	cout << "----- Binary Search -----" << endl;
+	int start = 0;
+	int end = arr.size() - 1;
+	int mid = 0;
+	while(start<=end){
+		mid = start + (end - start) / 2;
+		if (arr[mid] > element) {
+			end = mid - 1;
+		}
+		else if (arr[mid] < element) {
+			start = mid + 1;
+		}
+		else
+		{
+			index = mid;
+			return true;
+		}
+	}
+	
+
+	index = -1;
+	return false;
+
+	
+}
 int main()
 {
-	//int num1, num2;
-	/*cout << "Enter Number Of Elements" << endl;
+	/*int num1, num2;
+	cout << "Enter Number Of Elements" << endl;
 	int N;
 	cin >> N;
 	int* ptr = new int[N];
@@ -94,9 +126,9 @@ int main()
 		cin >> ptr[i];
 	}
 	averageprefix(ptr, N);
-	//insertionSort(ptr, N);
-	//bubbleSort(ptr, N);
-	//printArray(ptr, N);
+	insertionSort(ptr, N);
+	bubbleSort(ptr, N);
+    printArray(ptr, N);
 	cout << "Enter Num 1" << endl;
 	cin >> num1;
 	cout << "Enter Num 2" << endl;
@@ -108,6 +140,42 @@ int main()
 	cout << "Peak " << FindPeak(arr2) << endl;
 	vector<int> arr3 = { 1, 2,3,4,5,6,7,11,10,9,8,7,5,6,4,3 };
 	cout << "Peak " << FindPeak(arr3) << endl;
+	int index = 0;
+	vector<int> arr4 = {1,5,8,9,10,17,20};
+	vector <char> arr5 = { 'a','b','c','d','e' };
+	cout <<endl<< "Index is 1 based " << endl;
+	if (BinarySearch(arr4, 3, index))
+		cout << "Element Found At index " << index+1 << endl;
+	else
+		cout << "Element Not Found " << endl;
+	if (BinarySearch(arr4, 17, index))
+		cout << "Element Found At index " << index + 1 << endl;
+	else
+		cout << "Element Not Found " << endl;
+	if (BinarySearch(arr4, 20, index))
+		cout << "Element Found At index " << index + 1 << endl;
+	else
+		cout << "Element Not Found " << endl;
+	if (BinarySearch(arr4, 1, index))
+		cout << "Element Found At index " << index + 1 << endl;
+	else
+		cout << "Element Not Found " << endl;
+	if (BinarySearch(arr5, 'a', index))
+		cout << "Element Found At index " << index + 1 << endl;
+	else
+		cout << "Element Not Found " << endl;
+	if (BinarySearch(arr5, 'e', index))
+		cout << "Element Found At index " << index + 1 << endl;
+	else
+		cout << "Element Not Found " << endl;
+	if (BinarySearch(arr5, 'd', index))
+		cout << "Element Found At index " << index + 1 << endl;
+	else
+		cout << "Element Not Found " << endl;
+	if (BinarySearch(arr5, 'w', index))
+		cout << "Element Found At index " << index + 1 << endl;
+	else
+		cout << "Element Not Found " << endl;
 	return 0;
 }
 
