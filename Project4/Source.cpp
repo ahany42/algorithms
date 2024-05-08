@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 template <class T>
 void insertionSort(T arr[], int n)
@@ -153,6 +154,33 @@ void MergeSort(vector<int> &arr) {
 	MergeSort(rightHalf);
 	//Combine
 	Combine(arr, leftHalf, rightHalf);
+}
+//two sum problem
+vector<int> twoSum(vector<int>& nums, int target) {
+	vector <int> solution;
+	int size = nums.size();
+	int start = 0;
+	int end = nums.size() - 1;
+	int i = 0;
+	while (abs(nums[start] + nums[end]) != abs(target) || i == size) {
+		i++;
+		if (abs(nums[start] + nums[end]) > abs(target)) {
+			end--;
+		}
+		else if (abs(nums[start] + nums[end]) < abs(target)) {
+			start++;
+		}
+	}
+	if (i == size) {
+		return solution;
+	}
+	else {
+
+		solution.push_back(start);
+		solution.push_back(end);
+	}
+
+	return solution;
 }
 int main()
 {
