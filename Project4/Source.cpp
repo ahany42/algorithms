@@ -202,6 +202,18 @@ int FindDrop(int arr[], int N) {
 
 	}
 }
+long DpFibonacci(int number) {
+/*if (number == 0)
+		return 0;
+	if (number == 1)
+		return 1;*/
+	long* fib = new long[number ];
+	fib[0] = 0;
+	fib[1] = 1;
+	for (int i = 2; i <= number ; i++)
+		fib[i] = fib[i - 1] + fib[i - 2];
+	return fib[number];
+}
 int main()
 {
 	/*int num1, num2;
@@ -270,6 +282,7 @@ int main()
 	cout << endl;
 	int arr7[8] = {10, 9, 4,  2, 6, 10, 100};
 	cout << "Drop "<<FindDrop(arr7, 7) << endl;
+	cout << DpFibonacci(15) << " " << DpFibonacci(50) << " " << endl;
 	return 0;
 }
 
