@@ -211,6 +211,14 @@ long DpFibonacci(int number) {
 		fib[i] = fib[i - 1] + fib[i - 2];
 	return fib[number];
 }
+long Fibonacci(int number){
+	if (number == 1)
+		return 1;
+	if (number == 0)
+		return 0;
+	else
+		return Fibonacci(number - 1) + Fibonacci(number - 2);
+}
 int main()
 {
 	/*int num1, num2;
@@ -280,6 +288,7 @@ int main()
 	int arr7[8] = {10, 9, 4,  2, 6, 10, 100};
 	cout << "Drop "<<FindDrop(arr7, 7) << endl;
 	cout << DpFibonacci(15) << " " << DpFibonacci(40) << " " << endl;
+	cout << Fibonacci(15) << " " << Fibonacci(40) << " "<<endl;
 	return 0;
 }
 
