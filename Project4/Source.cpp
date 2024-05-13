@@ -84,7 +84,7 @@ int FindPeak(vector<int> arr) {
 
 		}
 	}
-	return arr[end];
+
 	
 }
 //Binary Search,arr>>sorted array
@@ -203,10 +203,7 @@ int FindDrop(int arr[], int N) {
 	}
 }
 long DpFibonacci(int number) {
-/*if (number == 0)
-		return 0;
-	if (number == 1)
-		return 1;*/
+
 	long* fib = new long[number ];
 	fib[0] = 0;
 	fib[1] = 1;
@@ -282,7 +279,7 @@ int main()
 	cout << endl;
 	int arr7[8] = {10, 9, 4,  2, 6, 10, 100};
 	cout << "Drop "<<FindDrop(arr7, 7) << endl;
-	cout << DpFibonacci(15) << " " << DpFibonacci(50) << " " << endl;
+	cout << DpFibonacci(15) << " " << DpFibonacci(40) << " " << endl;
 	return 0;
 }
 
