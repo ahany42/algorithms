@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 template <class T>
-void insertionSort(T arr[], int n)
+void InsertionSort(T arr[], int n)
 {
 	cout << "----- Insertion Sort -----" << endl;
 	int i,  j;
@@ -19,7 +19,7 @@ void insertionSort(T arr[], int n)
 	}
 }
 template <class T>
-void printArray(T arr[], int n)
+void PrintArray(T arr[], int n)
 {
 	cout << "----- Print Array -----" << endl;
 	for (int i  = 0; i < n; i++)
@@ -27,7 +27,15 @@ void printArray(T arr[], int n)
 	cout << endl;
 }
 template <class T>
-void bubbleSort(T arr[],int n) {
+void PrintArray(vector<T> arr)
+{
+	cout << "----- Print Vector -----" << endl;
+	for (int i = 0; i < arr.size(); i++)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+template <class T>
+void BubbleSort(T arr[],int n) {
 	cout << "----- Bubble Sort -----" << endl;
 	for (int i = 0; i < n-1; i++)
 		for (int j = 0; j < n; j++) {
@@ -39,7 +47,7 @@ void bubbleSort(T arr[],int n) {
 		}
 		
 }
-void averageprefix(int arr[],int n) {
+void AveragePrefix(int arr[],int n) {
 	cout << "----- Average Prefix -----" << endl;
 	float sum = 0;
 	for (int i = 0; i < n; i++) {
@@ -239,75 +247,187 @@ int ResetFibonacci(int number, int reset) {
 }
 int main()
 {
-	/*int num1, num2;
-	cout << "Enter Number Of Elements" << endl;
-	int N;
-	cin >> N;
-	int* ptr = new int[N];
-	cout << "Enter Array Elements" << endl;
-	for (int i = 0; i < N; i++) {
-		cin >> ptr[i];
+	while (true) {
+	int choice;
+	cout << "Press 1 For Mathimatical Algorithms" << endl;
+	cout << "Press 2 For Sorting Algorithms" << endl;
+	cout << "Press 3 For Binary Search Algorithms" << endl;
+	cout << "Press 4 For Fibonacci" << endl;
+	cout << "Press 9 To exit" << endl;
+	cin >> choice;
+	if (choice == 1) {
+		while (true) {
+			int choice2;
+			cout << "Press 1 For Average Prefix " << endl;
+			cout << "Press 2 For Smart Multiply " << endl;
+			cout << "Press 9 Back To Main Menu" << endl;
+			cin >> choice2;
+			if (choice2 == 1) {
+				cout << "Enter Number Of Elements" << endl;
+				int N;
+				cin >> N;
+				int* ptr = new int[N];
+				cout << "Enter Array Elements" << endl;
+				for (int i = 0; i < N; i++) {
+					cin >> ptr[i];
+				}
+				AveragePrefix(ptr, N);
+			}
+			else if (choice == 2) {
+				int num1, num2;
+				cout << "Enter Num 1" << endl;
+				cin >> num1;
+				cout << "Enter Num 2" << endl;
+				cin >> num2;
+				cout << SmartMultiply(num1, num2);
+
+			}
+			else if (choice2 == 9)
+				break;
+		}
 	}
-	averageprefix(ptr, N);
-	insertionSort(ptr, N);
-	bubbleSort(ptr, N);
-    printArray(ptr, N);
-	cout << "Enter Num 1" << endl;
-	cin >> num1;
-	cout << "Enter Num 2" << endl;
-	cin >> num2;
-	cout<<SmartMultiply(num1, num2);*/
-	vector<int> arr = { 1, 3, 5, 7, 9, 11, 10, 8, 6, 4, 2 };
-	cout <<"Peak "<< FindPeak(arr) << endl;
-	vector<int> arr2 = { 1, 7, 6, 2 };
-	cout << "Peak " << FindPeak(arr2) << endl;
-	vector<int> arr3 = { 1, 2,3,4,5,6,7,11,10,9,8,7,5,6,4,3 };
-	cout << "Peak " << FindPeak(arr3) << endl;
-	int index = 0;
-	vector<int> arr4 = {1,5,8,9,10,17,20};
-	vector <char> arr5 = { 'a','b','c','d','e' };
-	cout <<endl<< "Index is 1 based " << endl;
-	if (BinarySearch(arr4, 3, index))
-		cout << "Element Found At index " << index+1 << endl;
-	else
-		cout << "Element Not Found " << endl;
-	if (BinarySearch(arr4, 17, index))
-		cout << "Element Found At index " << index + 1 << endl;
-	else
-		cout << "Element Not Found " << endl;
-	if (BinarySearch(arr4, 20, index))
-		cout << "Element Found At index " << index + 1 << endl;
-	else
-		cout << "Element Not Found " << endl;
-	if (BinarySearch(arr4, 1, index))
-		cout << "Element Found At index " << index + 1 << endl;
-	else
-		cout << "Element Not Found " << endl;
-	if (BinarySearch(arr5, 'a', index))
-		cout << "Element Found At index " << index + 1 << endl;
-	else
-		cout << "Element Not Found " << endl;
-	if (BinarySearch(arr5, 'e', index))
-		cout << "Element Found At index " << index + 1 << endl;
-	else
-		cout << "Element Not Found " << endl;
-	if (BinarySearch(arr5, 'd', index))
-		cout << "Element Found At index " << index + 1 << endl;
-	else
-		cout << "Element Not Found " << endl;
-	if (BinarySearch(arr5, 'w', index))
-		cout << "Element Found At index " << index + 1 << endl;
-	else
-		cout << "Element Not Found " << endl;
-	MergeSort(arr);
-	for (int i = 0; i < arr.size(); i++)
-		cout << arr[i] << "  ";
-	cout << endl;
-	int arr7[8] = {10, 9, 4,  2, 6, 10, 100};
-	cout << "Drop "<<FindDrop(arr7, 7) << endl;
-	cout << DpFibonacci(15) << " " << DpFibonacci(40) << " " << endl;
-	cout << ResetFibonacci(17, 6) << endl;
-	cout << Fibonacci(15) << " " << Fibonacci(40) << " "<<endl;
+	else if (choice == 2) {
+		while (true) {
+			int choice2;
+			cout << "Press 1 For Insertion Sort " << endl;
+			cout << "Press 2 For Bubble Sort " << endl;
+			cout << "Press 3 For Merge Sort " << endl;
+			cout << "Press 9 Back To Main Menu" << endl;
+			cin >> choice2;
+			if (choice2 == 1) {
+				cout << "Enter Number Of Elements" << endl;
+				int N;
+				cin >> N;
+				int* ptr = new int[N];
+				cout << "Enter Array Elements" << endl;
+				for (int i = 0; i < N; i++) {
+					cin >> ptr[i];
+				}
+				InsertionSort(ptr, N);
+			    PrintArray(ptr, N);
+
+			}
+			else if (choice2 == 2) {
+				cout << "Enter Number Of Elements" << endl;
+				int N;
+				cin >> N;
+				int* ptr = new int[N];
+				cout << "Enter Array Elements" << endl;
+				for (int i = 0; i < N; i++) {
+					cin >> ptr[i];
+				}
+				BubbleSort(ptr, N);
+				PrintArray(ptr, N);
+			}
+			else if (choice2 == 3) {
+				cout << "Enter Number Of Elements" << endl;
+				int N;
+				cin >> N;
+				vector <int> arr;
+				int* arr1 = new int[N];
+				cout << "Enter Array Elements" << endl;
+				for (int i = 0; i < N; i++) {
+					cin >> arr1[i];
+					arr.push_back(arr1[i]);
+				}
+				MergeSort(arr);
+				PrintArray(arr);
+			}
+			else if (choice2 == 9)
+				break;
+
+		}
+		
+	}
+	else if (choice == 3) {
+		while (true) {
+			int choice2;
+			cout << "Press 1 For Find Peak Algorithm " << endl;
+			cout << "Press 2 For Find Drop Algorithm " << endl;
+			cout << "Press 3 For Binary Search " << endl;
+			cout << "Press 9 Back To Main Menu" << endl;
+			cin >> choice2;
+			if (choice2 == 1) {
+				vector<int> arr = { 1, 3, 5, 7, 9, 11, 10, 8, 6, 4, 2 };
+				PrintArray(arr);
+				cout << "Peak " << FindPeak(arr) << endl;
+				vector<int> arr2 = { 1, 7, 6, 2 };
+				PrintArray(arr);
+				cout << "Peak " << FindPeak(arr2) << endl;
+				vector<int> arr3 = { 1, 2,3,4,5,6,7,11,10,9,8,7,5,6,4,3 };
+				PrintArray(arr);
+				cout << "Peak " << FindPeak(arr3) << endl;
+			}
+			else if (choice2 == 2)
+			{
+				int arr7[8] = { 10, 9, 4,  2, 6, 10, 100 };
+				PrintArray(arr7, 8);
+				cout << "Drop " << FindDrop(arr7, 7) << endl;
+			}
+			else if (choice2 == 3) {
+				cout << "Enter Number Of Integers" << endl;
+				int N;
+				int val;
+				cin >> N;
+				vector <int> arr;
+				int* arr1 = new int[N];
+				cout << "Enter Array Elements" << endl;
+				for (int i = 0; i < N; i++) {
+					cin >> arr1[i];
+					arr.push_back(arr1[i]);
+				}
+				cout << "Enter Value to Search For" << endl;
+				cin >> val;
+				int index = 0;
+				if (BinarySearch(arr, val, index))
+					cout << "Element Found At index " << index + 1 << endl;
+				else
+					cout << "Element Not Found " << endl;
+			}
+			else if (choice == 9)
+				break;
+		}
+	}
+	else if (choice == 4) {
+		while (true) {
+			int choice2;
+			cout << "Press 1 For Recursive Fibonacci " << endl;
+			cout << "Press 2 For Dynamic Programming Fibonacci " << endl;
+			cout << "Press 3 For Reset Fibonnaci " << endl;
+			cout << "Press 9 Back To Main Menu" << endl;
+			cin >> choice2;
+			if (choice2 == 1)
+			{
+				int num;
+				cout << "Enter Number to Calculate Fibonnaci"<<endl;
+				cout << "Complexity O(2^n)" << endl;
+				cin >> num;
+				if (num>46)
+					cout << "Fibonnaci of " << num << " is more than Long Limit " << LONG_MAX << endl;
+				else cout << "Fibonnaci " <<Fibonacci(num) << endl;
+			}
+			else if (choice2 == 2) {
+				int num;
+				cout << "Enter Number to Calculate Fibonnaci by Dynamic Programming" << endl;
+				cout << "Complexity O(n)" << endl;
+				cin >> num;
+				if (num > 46)
+					cout << "Fibonnaci of " << num << " is more than Long Limit " << LONG_MAX << endl;
+				else cout << "Fibonnaci " << DpFibonacci(num) << endl;
+			}
+			else if (choice2 == 3) {
+				int num, reset;
+				cout << "Enter Number to Calculate Reset Fibonnaci" << endl;
+				cin >> num;
+				cout << "Enter Number to Reset Fibonacci Count" << endl;
+				cin >> reset;
+				cout << ResetFibonacci(num, reset) << endl;
+			}
+		}
+	}
+	else if(choice==9)
+		break;
+	}
 	return 0;
 }
 
