@@ -219,6 +219,24 @@ long Fibonacci(int number){
 	else
 		return Fibonacci(number - 1) + Fibonacci(number - 2);
 }
+//Fibonacci with a twist , Fibonacci count to reset
+/*
+* Test Cases 
+* number=16,reset=5 output=1
+* number=16,reset=6 output=5
+* number=17,reset=6 output=8
+* number=1506,reset=10 output=1
+*/
+int ResetFibonacci(int number, int reset) {
+	if (number == reset)
+		return DpFibonacci(number);
+	int* fib = new int[reset];
+	fib[0] = 0;
+	fib[1] = 1;
+	for (int i = 2; i <= reset; i++)
+		fib[i] = fib[i - 1] + fib[i - 2];
+	return fib[(number%reset)+1];
+}
 int main()
 {
 	/*int num1, num2;
@@ -288,6 +306,7 @@ int main()
 	int arr7[8] = {10, 9, 4,  2, 6, 10, 100};
 	cout << "Drop "<<FindDrop(arr7, 7) << endl;
 	cout << DpFibonacci(15) << " " << DpFibonacci(40) << " " << endl;
+	cout << ResetFibonacci(17, 6) << endl;
 	cout << Fibonacci(15) << " " << Fibonacci(40) << " "<<endl;
 	return 0;
 }
